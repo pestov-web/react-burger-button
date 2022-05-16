@@ -3,6 +3,7 @@
   border: none;
   overflow: hidden;
   outline: 0;
+  padding: 0;
 }
 .burger__menu {
   cursor: pointer;

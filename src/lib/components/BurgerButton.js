@@ -12,8 +12,6 @@ function BurgerButton({ variant, thin, thick, color, size, label }) {
 
   const toggleMenu = () => {
     setIsOpened(!isOpened);
-
-    console.log(svgClassNames);
   };
 
   const type = () => {

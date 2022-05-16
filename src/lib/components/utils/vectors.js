@@ -1,14 +1,3 @@
-export const flavourList = [
-  "cross-right",
-  "arrow-top-left",
-  "close",
-  "plus",
-  "arrow-right",
-  "cross-complex",
-  "cross-left",
-  "cross-rotate",
-];
-
 export const vectors = {
   "cross-right": [
     {

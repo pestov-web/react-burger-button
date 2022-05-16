@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./styles/style.css";
-import { vectors } from "./utils/constants";
+import { vectors } from "./utils/vectors";
 
 function BurgerButton({ variant, thin, thick, color, size, label }) {
   const [isOpened, setIsOpened] = useState(false);

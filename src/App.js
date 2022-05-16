@@ -1,4 +1,5 @@
 import "./App.css";
+import "./lib/components/styles/style.css";
 import BurgerButton from "./lib/components/BurgerButton";
 import { useState } from "react";
 

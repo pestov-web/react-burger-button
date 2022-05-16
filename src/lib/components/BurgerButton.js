@@ -76,7 +76,6 @@ function BurgerButton({ variant, thin, thick, color, size, label }) {
         ))}
         ;
       </svg>
-      {vectors["class"]}
     </button>
   );
 }

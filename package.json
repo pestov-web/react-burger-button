@@ -1,8 +1,17 @@
 {
-  "name": "react-burger-button",
+  "name": "burger-button-react",
+  "description": "Customizable burger button React components",
+  "author": "Vladimir Pestov",
+  "keywords": ["react", "components", "ui", "button", "burger"],
   "version": "0.0.1b",
   "homepage": "https://pestov-web.github.io/react-burger-button",
   "private": false,
+  "module": "dist/index.js",
+  "files": [ "dist", "README.md" ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pestov-web/react-burger-button.git"
+  },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
     "@testing-library/jest-dom": "^5.16.4",

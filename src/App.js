@@ -1,7 +1,8 @@
 import "./App.css";
-import "./lib/components/styles/style.css";
+import "./lib/style.css";
 import BurgerButton from "./lib/components/BurgerButton";
 import { useState } from "react";
+import { logDOM } from "@testing-library/react";
 
 function App() {
   const [variant, setVariant] = useState("cross-right");

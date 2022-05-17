@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { vectors } from "./utils/vectors";
 
-function BurgerButton({ variant, thin, thick, color, size, label }) {
+function BurgerButton({ variant, thin, thick, color, size, label, onClick }) {
   const [isOpened, setIsOpened] = useState(false);
   const [buttonClassNames, setButtonClassNames] = useState("");
   const [svgClassNames, setSvgClassNames] = useState("");
@@ -9,8 +9,9 @@ function BurgerButton({ variant, thin, thick, color, size, label }) {
   let buttonClasses;
   let svgClasses;
 
-  const toggleMenu = () => {
+  const handleClick = () => {
     setIsOpened(!isOpened);
+    onClick && onClick();
   };
 
   const type = () => {
@@ -68,7 +69,7 @@ function BurgerButton({ variant, thin, thick, color, size, label }) {
         className={svgClassNames}
         viewBox="0 0 100 100"
         width={size}
-        onClick={toggleMenu}
+        onClick={handleClick}
       >
         {vector().map((item, index) => (
           <path key={index} className={item.class} d={item.d} stroke={color} />

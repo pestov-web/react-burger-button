@@ -28,17 +28,21 @@ import 'burger-react/dist/style.css'
 ```scss
 import 'burger-react/dist/style.scss'
 ```
-## Example 
+## Example
 ```jsx
 import 'burger-react/dist/style.css'
 import BurgerButton from 'burger-react'
 
 function App() {
 
+    const [opened, setOpened] = React.useState(false);
     return (
         <div className='App'>
             <header className='App-header'>
-                <BurgerButton />
+                <BurgerButton
+                    isOpened={opened}
+                    onClick={() => setOpened(!opened)}
+                />
             </header>
         </div>
     );
@@ -48,12 +52,13 @@ export default App;
 ```
 ## Props
 
-| Name    | Type     | Default         |
-|---------|----------|-----------------|
-| variant | String   | "cross-right"   |           
-| thin    | Boolean  | false           |
-| thick   | Boolean  | false           |            
-| color   | String   | "#000000"       |
-| size    | Number   | 80              |
-| label   | String   | "burger button" |
-| onClick | Function |                 |
+| Name     | Type     | Default         | Description                       |
+|----------|----------|-----------------|-----------------------------------|
+| variant  | String   | "cross-right"   | Icon type                         |
+| thin     | Boolean  | false           | Thin lines                        |
+| thick    | Boolean  | false           | Thick lines                       |
+| color    | String   | "#000000"       | Line color                        |
+| size     | Number   | 80              | SVG size                          |
+| label    | String   | "burger button" | aria-label for accessibility      |
+| onClick  | Function |                 | Click handler                     |
+| isOpened | Boolean  | undefined       | Controls open state               |

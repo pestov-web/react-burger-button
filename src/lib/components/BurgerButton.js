@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import { vectors } from "./utils/vectors";
 
 function BurgerButton({ variant, thin, thick, color, size, label, onClick }) {
-  const [isOpened, setIsOpened] = useState(false);
+  const [internalOpened, setInternalOpened] = useState(false);
+  // Позволяет управлять состоянием извне
+  const isControlled = typeof arguments[0]?.isOpened === 'boolean';
+  const isOpened = isControlled ? arguments[0].isOpened : internalOpened;
   const [buttonClassNames, setButtonClassNames] = useState("");
   const [svgClassNames, setSvgClassNames] = useState("");
 
@@ -10,7 +13,7 @@ function BurgerButton({ variant, thin, thick, color, size, label, onClick }) {
   let svgClasses;
 
   const handleClick = () => {
-    setIsOpened(!isOpened);
+    if (!isControlled) setInternalOpened(!internalOpened);
     onClick && onClick();
   };
 
@@ -49,7 +52,7 @@ function BurgerButton({ variant, thin, thick, color, size, label, onClick }) {
   const getClasses = (classes) => {
     let result = [];
     Object.keys(classes).forEach((item) => {
-      !classes[item] === false && result.push(item);
+      if (!!classes[item]) result.push(item);
     });
     return result.join(" ");
   };
@@ -61,7 +64,7 @@ function BurgerButton({ variant, thin, thick, color, size, label, onClick }) {
   useEffect(() => {
     setButtonClassNames(getClasses(buttonClasses));
     setSvgClassNames(getClasses(svgClasses));
-  }, [buttonClasses, svgClasses]);
+  }, [isOpened, variant, thin, thick]);
 
   return (
     <button className={buttonClassNames} type="button" aria-label={label}>
@@ -74,7 +77,6 @@ function BurgerButton({ variant, thin, thick, color, size, label, onClick }) {
         {vector().map((item, index) => (
           <path key={index} className={item.class} d={item.d} stroke={color} />
         ))}
-        ;
       </svg>
     </button>
   );
@@ -87,6 +89,7 @@ BurgerButton.defaultProps = {
   color: "#000000",
   size: 80,
   label: "burger button",
+  isOpened: undefined,
 };
 
 export default BurgerButton;
